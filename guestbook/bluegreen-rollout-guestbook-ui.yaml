@@ -54,8 +54,8 @@ spec:
       autoPromotionEnabled: true
       autoPromotionSeconds: 30
       previewService: guestbook-ui-preview
-  workloadRef:
-    apiVersion: argoproj.io/v1alpha1
-    kind: Rollout
-    name: rollout-guestbook-ui
+  # workloadRef:
+  #   apiVersion: argoproj.io/v1alpha1
+  #   kind: Rollout
+  #   name: rollout-guestbook-ui
 
