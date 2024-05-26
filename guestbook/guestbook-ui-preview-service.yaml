@@ -27,17 +27,39 @@
 #     version: preview
 
 
-apiVersion: v1
-kind: Service
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     argocd.argoproj.io/instance: demo
+#   name: guestbook-ui-preview
+#   namespace: default
+# spec:
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#   selector:
+#     app: guestbook-ui
+#     version: preview
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
 metadata:
   labels:
     argocd.argoproj.io/instance: demo
-  name: guestbook-ui-preview
+  name: rollout-guestbook-ui
   namespace: default
 spec:
-  ports:
-    - port: 80
-      targetPort: 80
-  selector:
-    app: guestbook-ui
-    version: preview
+  replicas: 1
+  revisionHistoryLimit: 3
+  strategy:
+    blueGreen:
+      activeService: guestbook-ui-active
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 30
+      previewService: guestbook-ui-preview
+  workloadRef:
+    apiVersion: apps/v1
+    kind: Deployment
+    name: guestbook-ui
+
