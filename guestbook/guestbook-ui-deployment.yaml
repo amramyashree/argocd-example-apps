@@ -45,6 +45,29 @@
 #         - containerPort: 80
 
 
+# apiVersion: apps/v1
+# kind: Deployment
+# metadata:
+#   name: guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   selector:
+#     matchLabels:
+#       app: guestbook-ui
+#   template:
+#     metadata:
+#       labels:
+#         app: guestbook-ui
+#         version: active  # Default version label
+#     spec:
+#       containers:
+#       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+#         name: guestbook-ui
+#         ports:
+#         - containerPort: 80
+
 apiVersion: apps/v1
 kind: Deployment
 metadata:
@@ -60,10 +83,11 @@ spec:
     metadata:
       labels:
         app: guestbook-ui
-        version: active  # Default version label
+        version: active  # Start with the active version
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
         name: guestbook-ui
         ports:
         - containerPort: 80
+
