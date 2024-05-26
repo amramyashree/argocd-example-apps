@@ -19,21 +19,43 @@
 #       autoPromotionSeconds: 30
 
 
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   name: rollout-guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   workloadRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: guestbook-ui
+#   strategy:
+#     blueGreen:
+#       activeService: guestbook-ui-active
+#       previewService: guestbook-ui-preview
+#       autoPromotionEnabled: true
+#       autoPromotionSeconds: 30
+
 apiVersion: argoproj.io/v1alpha1
 kind: Rollout
 metadata:
+  labels:
+    argocd.argoproj.io/instance: demo
   name: rollout-guestbook-ui
   namespace: default
 spec:
   replicas: 1
   revisionHistoryLimit: 3
+  strategy:
+    blueGreen:
+      activeService: guestbook-ui-active
+      autoPromotionEnabled: true
+      autoPromotionSeconds: 30
+      previewService: guestbook-ui-preview
   workloadRef:
     apiVersion: apps/v1
     kind: Deployment
     name: guestbook-ui
-  strategy:
-    blueGreen:
-      activeService: guestbook-ui-active
-      previewService: guestbook-ui-preview
-      autoPromotionEnabled: true
-      autoPromotionSeconds: 30
+
