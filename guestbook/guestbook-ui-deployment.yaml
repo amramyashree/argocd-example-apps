@@ -83,7 +83,7 @@ spec:
     metadata:
       labels:
         app: guestbook-ui
-        version: active  # Start with the active version
+        # version: active  # Start with the active version
     spec:
       containers:
       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
