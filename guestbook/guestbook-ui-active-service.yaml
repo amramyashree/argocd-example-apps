@@ -37,11 +37,24 @@
 #     app: guestbook-ui
 #     version: active
 
+# apiVersion: v1
+# kind: Service
+# metadata:
+#   labels:
+#     argocd.argoproj.io/instance: demo
+#   name: guestbook-ui-active
+#   namespace: default
+# spec:
+#   ports:
+#     - port: 80
+#       targetPort: 80
+#   selector:
+#     app: guestbook-ui
+#     version: active
+
 apiVersion: v1
 kind: Service
 metadata:
-  labels:
-    argocd.argoproj.io/instance: demo
   name: guestbook-ui-active
   namespace: default
 spec:
