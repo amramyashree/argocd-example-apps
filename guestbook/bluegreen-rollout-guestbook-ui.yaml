@@ -133,6 +133,7 @@ spec:
   selector:
     matchLabels:
       app: guestbook-ui
+      version: active
   strategy:
     blueGreen:
       activeService: guestbook-ui-active
