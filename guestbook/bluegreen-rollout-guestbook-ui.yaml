@@ -133,7 +133,7 @@ spec:
   selector:
     matchLabels:
       app: guestbook-ui
-      version: preview
+      version: active
   strategy:
     blueGreen:
       activeService: guestbook-ui-active
@@ -144,7 +144,7 @@ spec:
     metadata:
       labels:
         app: guestbook-ui
-        version: preview
+        version: active
     spec:
       containers:
         - image: 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
