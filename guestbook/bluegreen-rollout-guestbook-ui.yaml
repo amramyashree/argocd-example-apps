@@ -137,7 +137,7 @@ spec:
   strategy:
     blueGreen:
       activeService: guestbook-ui-active
-      autoPromotionEnabled: true
+      autoPromotionEnabled: false
       autoPromotionSeconds: 30
       previewService: guestbook-ui-preview
   template:
