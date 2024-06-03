@@ -1,124 +1,63 @@
-# # # bluegreen-rollout-guestbook-ui.yaml
-# # apiVersion: argoproj.io/v1alpha1
-# # kind: Rollout
-# # metadata:
-# #   name: rollout-guestbook-ui
-# #   namespace: default
-# # spec:
-# #   replicas: 1
-# #   revisionHistoryLimit: 3
-# #   workloadRef:
-# #     apiVersion: apps/v1
-# #     kind: Deployment
-# #     name: guestbook-ui
-# #   strategy:
-# #     blueGreen:
-# #       activeService: guestbook-ui-active
-# #       previewService: guestbook-ui-preview
-# #       autoPromotionEnabled: true
-# #       autoPromotionSeconds: 30
+# # bluegreen-rollout-guestbook-ui.yaml
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   name: rollout-guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   workloadRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: guestbook-ui
+#   strategy:
+#     blueGreen:
+#       activeService: guestbook-ui-active
+#       previewService: guestbook-ui-preview
+#       autoPromotionEnabled: true
+#       autoPromotionSeconds: 30
 
 
-# # apiVersion: argoproj.io/v1alpha1
-# # kind: Rollout
-# # metadata:
-# #   name: rollout-guestbook-ui
-# #   namespace: default
-# # spec:
-# #   replicas: 1
-# #   revisionHistoryLimit: 3
-# #   workloadRef:
-# #     apiVersion: apps/v1
-# #     kind: Deployment
-# #     name: guestbook-ui
-# #   strategy:
-# #     blueGreen:
-# #       activeService: guestbook-ui-active
-# #       previewService: guestbook-ui-preview
-# #       autoPromotionEnabled: true
-# #       autoPromotionSeconds: 30
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   name: rollout-guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   workloadRef:
+#     apiVersion: apps/v1
+#     kind: Deployment
+#     name: guestbook-ui
+#   strategy:
+#     blueGreen:
+#       activeService: guestbook-ui-active
+#       previewService: guestbook-ui-preview
+#       autoPromotionEnabled: true
+#       autoPromotionSeconds: 30
 
-# # apiVersion: argoproj.io/v1alpha1
-# # kind: Rollout
-# # metadata:
-# #   labels:
-# #     argocd.argoproj.io/instance: demo
-# #   name: rollout-guestbook-ui
-# #   namespace: default
-# # spec:
-# #   replicas: 1
-# #   revisionHistoryLimit: 3
-# #   strategy:
-# #     blueGreen:
-# #       activeService: guestbook-ui-active
-# #       autoPromotionEnabled: true
-# #       autoPromotionSeconds: 30
-# #       previewService: guestbook-ui-preview
-# #   # workloadRef:
-# #   #   apiVersion: argoproj.io/v1alpha1
-# #   #   kind: Rollout
-# #   #   name: rollout-guestbook-ui
-
-# # apiVersion: argoproj.io/v1alpha1
-# # kind: Rollout
-# # metadata:
-# #   labels:
-# #     argocd.argoproj.io/instance: demo
-# #   name: rollout-guestbook-ui
-# #   namespace: default
-# # spec:
-# #   replicas: 1
-# #   revisionHistoryLimit: 3
-# #   selector:
-# #     matchLabels:
-# #       app: guestbook-ui
-# #   strategy:
-# #     blueGreen:
-# #       activeService: guestbook-ui-active
-# #       autoPromotionEnabled: true
-# #       autoPromotionSeconds: 30
-# #       previewService: guestbook-ui-preview
-# #   template:
-# #     metadata:
-# #       labels:
-# #         app: guestbook-ui
-# #     spec:
-# #       containers:
-# #       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-# #         name: guestbook-ui
-# #         ports:
-# #         - containerPort: 80
-
-# # apiVersion: argoproj.io/v1alpha1
-# # kind: Rollout
-# # metadata:
-# #   labels:
-# #     argocd.argoproj.io/instance: demo
-# #   name: rollout-guestbook-ui
-# #   namespace: default
-# # spec:
-# #   replicas: 1
-# #   revisionHistoryLimit: 3
-# #   selector:
-# #     matchLabels:
-# #       app: guestbook-ui
-# #   strategy:
-# #     blueGreen:
-# #       activeService: guestbook-ui-active
-# #       autoPromotionEnabled: true
-# #       autoPromotionSeconds: 30
-# #       previewService: guestbook-ui-preview
-# #   template:
-# #     metadata:
-# #       labels:
-# #         app: guestbook-ui
-# #     spec:
-# #       containers:
-# #         - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
-# #           name: guestbook-ui
-# #           ports:
-# #             - containerPort: 80
-
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   labels:
+#     argocd.argoproj.io/instance: demo
+#   name: rollout-guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   strategy:
+#     blueGreen:
+#       activeService: guestbook-ui-active
+#       autoPromotionEnabled: true
+#       autoPromotionSeconds: 30
+#       previewService: guestbook-ui-preview
+#   # workloadRef:
+#   #   apiVersion: argoproj.io/v1alpha1
+#   #   kind: Rollout
+#   #   name: rollout-guestbook-ui
 
 # apiVersion: argoproj.io/v1alpha1
 # kind: Rollout
@@ -133,23 +72,84 @@
 #   selector:
 #     matchLabels:
 #       app: guestbook-ui
-#       # version: active
 #   strategy:
 #     blueGreen:
 #       activeService: guestbook-ui-active
-#       autoPromotionEnabled: false
+#       autoPromotionEnabled: true
 #       autoPromotionSeconds: 30
 #       previewService: guestbook-ui-preview
 #   template:
 #     metadata:
 #       labels:
 #         app: guestbook-ui
-#         # version: active
 #     spec:
 #       containers:
-#         - image: 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
+#       - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
+#         name: guestbook-ui
+#         ports:
+#         - containerPort: 80
+
+# apiVersion: argoproj.io/v1alpha1
+# kind: Rollout
+# metadata:
+#   labels:
+#     argocd.argoproj.io/instance: demo
+#   name: rollout-guestbook-ui
+#   namespace: default
+# spec:
+#   replicas: 1
+#   revisionHistoryLimit: 3
+#   selector:
+#     matchLabels:
+#       app: guestbook-ui
+#   strategy:
+#     blueGreen:
+#       activeService: guestbook-ui-active
+#       autoPromotionEnabled: true
+#       autoPromotionSeconds: 30
+#       previewService: guestbook-ui-preview
+#   template:
+#     metadata:
+#       labels:
+#         app: guestbook-ui
+#     spec:
+#       containers:
+#         - image: gcr.io/heptio-images/ks-guestbook-demo:0.2
 #           name: guestbook-ui
 #           ports:
 #             - containerPort: 80
+
+
+apiVersion: argoproj.io/v1alpha1
+kind: Rollout
+metadata:
+  labels:
+    argocd.argoproj.io/instance: demo
+  name: rollout-guestbook-ui
+  namespace: default
+spec:
+  replicas: 1
+  revisionHistoryLimit: 3
+  selector:
+    matchLabels:
+      app: guestbook-ui
+      # version: active
+  strategy:
+    blueGreen:
+      activeService: guestbook-ui-active
+      autoPromotionEnabled: false
+      autoPromotionSeconds: 30
+      previewService: guestbook-ui-preview
+  template:
+    metadata:
+      labels:
+        app: guestbook-ui
+        # version: active
+    spec:
+      containers:
+        - image: 'gcr.io/heptio-images/ks-guestbook-demo:0.2'
+          name: guestbook-ui
+          ports:
+            - containerPort: 80
 
 
