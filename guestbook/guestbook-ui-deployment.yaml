@@ -86,7 +86,7 @@ spec:
         # version: active  # Start with the active version
     spec:
       containers:
-      - image: gcr.io/heptio-images/ks-guestbook-demo:0.1
+      - image: gcr.io/heptio-images/ks-guestbasddsook-demo:0.1
         name: guestbook-ui
         ports:
         - containerPort: 80
